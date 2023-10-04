@@ -19,9 +19,10 @@ Statistics Canada. 2020. General Social Survey, Cycle 31, 2017 [Canada]: Family 
 | ------------- | ------------- |
 | RR Program.docx | Lists steps for reproducing the project and analysis results  |
 | Cleaning & Selecting Sample.do | Selects analysis sample through with restrictions  |
-| Recoding & Labelling Variables  | Recodes relevant variables and labeling accordingly |
-| Summary Table  | Creates summary statistics table  |
-| Analysis & Results Table  | Runs regression models and creates a results table  |
+| Recoding & Labelling Variables.do  | Recodes relevant variables and labeling accordingly |
+| Summary Table.do  | Creates summary statistics table  |
+| Analysis & Regression Table.smcl  | Log File of Regression Results Table |
+| Summary Statistics Table.smcl  | Log File of Summary Statistics Table |
 
 ## Instructions for Data Preparation and Analysis
 To reproduce the analyses conducted here, download the files of this project into a new created folder named "CAnD3-RR-Assignment." This folder will be your working directory. Once you are able to access and download the dataset, save it to the working directory. Open the program file and read the steps to follow in order. Import the GSS 2017 dataset to Stata. Open and run each do file to clean the data, produce the descriptive summary statistics table, run the regressions and produce regression results tables.
