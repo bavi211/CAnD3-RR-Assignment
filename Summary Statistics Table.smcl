@@ -1,0 +1,125 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\tbavi\OneDrive - McGill University\CAnD3\RR1 Assignment\Summary Statistics Table.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 4 Oct 2023, 12:38:16
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\tbavi\AppData\Local\Temp\STD5db0_000000.tmp"
+{txt}
+{com}. 
+. ************************************************************************
+. * TITLE: CAnD3: RRWM Data Activity - Summary Statistics Table
+. * AUTHOR: Bavisha Thurairajah 
+. * DATE STARTED: September 18th, 2023 
+. ************************************************************************
+. 
+. version 17
+{txt}
+{com}. 
+. use "C:\Users\tbavi\OneDrive\Desktop\GSS 2017.dta"
+{txt}
+{com}. 
+. ***Create a Table of Summary Statistics***
+. tabstat agec mars tenure dweltype hsize mh, by(sex1) stat(n mean)
+
+{txt}Summary statistics: N, Mean
+Group variable: sex1 
+
+{ralign 6:sex1} {...}
+{c |}{...}
+      agec      mars    tenure  dweltype     hsize        mh
+{hline 7}{c +}{hline 60}
+{ralign 6:Male} {...}
+{c |}{...}
+ {res}     1854      1852      1840      1842      1854      1835
+{txt}{space 6} {...}
+{c |}{...}
+ {res} 72.52319   .649568   .763587   .616721  .0210356  .9258856
+{txt}{hline 7}{c +}{hline 60}
+{ralign 6:Female} {...}
+{c |}{...}
+ {res}     2526      2524      2506      2505      2526      2506
+{txt}{space 6} {...}
+{c |}{...}
+ {res} 73.05107  .3795563  .7158819  .5001996   .017023  .9401437
+{txt}{hline 7}{c +}{hline 60}
+{ralign 6:Total} {...}
+{c |}{...}
+ {res}     4380      4376      4346      4347      4380      4341
+{txt}{space 6} {...}
+{c |}{...}
+ {res} 72.82763    .49383  .7360792  .5495744  .0187215  .9341166
+{txt}{hline 7}{c BT}{hline 60}
+
+{com}. 
+. //Sex-Stratified Tables of Tenure and Mental Health 
+. bysort sex1: tab tenure mh, missing row
+
+{txt}{hline}
+-> sex1 = Male
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}                mh
+    tenure {c |}  Not Good       Good          . {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+    Rented {c |}{res}        41        391          3 {txt}{c |}{res}       435 
+           {txt}{c |}{res}      9.43      89.89       0.69 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Owned {c |}{res}        93      1,301         11 {txt}{c |}{res}     1,405 
+           {txt}{c |}{res}      6.62      92.60       0.78 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         . {c |}{res}         2          7          5 {txt}{c |}{res}        14 
+           {txt}{c |}{res}     14.29      50.00      35.71 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       136      1,699         19 {txt}{c |}{res}     1,854 
+           {txt}{c |}{res}      7.34      91.64       1.02 {txt}{c |}{res}    100.00 
+
+{txt}{hline}
+-> sex1 = Female
+
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+           {c |}                mh
+    tenure {c |}  Not Good       Good          . {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+    Rented {c |}{res}        62        646          4 {txt}{c |}{res}       712 
+           {txt}{c |}{res}      8.71      90.73       0.56 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Owned {c |}{res}        87      1,699          8 {txt}{c |}{res}     1,794 
+           {txt}{c |}{res}      4.85      94.70       0.45 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         . {c |}{res}         1         11          8 {txt}{c |}{res}        20 
+           {txt}{c |}{res}      5.00      55.00      40.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       150      2,356         20 {txt}{c |}{res}     2,526 
+           {txt}{c |}{res}      5.94      93.27       0.79 {txt}{c |}{res}    100.00 
+
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\tbavi\AppData\Local\Temp\STD5db0_000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\tbavi\OneDrive - McGill University\CAnD3\RR1 Assignment\Summary Statistics Table.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 4 Oct 2023, 12:38:36
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
