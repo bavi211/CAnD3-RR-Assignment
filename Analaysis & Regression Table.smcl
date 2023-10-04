@@ -1,0 +1,131 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\tbavi\OneDrive - McGill University\CAnD3\RR1 Assignment\Analaysis & Regression Table.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 4 Oct 2023, 12:41:02
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\tbavi\AppData\Local\Temp\STD4044_000000.tmp"
+{txt}
+{com}. 
+. ************************************************************************
+. * TITLE: CAnD3: RRWM Data Activity - Analaysis & Regression Table
+. * AUTHOR: Bavisha Thurairajah 
+. * DATE STARTED: September 18th, 2023 
+. ************************************************************************
+. 
+. version 17
+{txt}
+{com}. 
+. 
+. use "C:\Users\tbavi\OneDrive\Desktop\GSS 2017.dta"
+{txt}
+{com}. 
+. ***Conduct Logistic Regression Analysis***
+. logistic mh tenure agec mars dweltype hsize
+{res}
+{txt}{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:4,304}
+{txt}{col 57}{lalign 13:LR chi2({res:5})}{col 70} = {res}{ralign 6:21.86}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0006}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-1030.1837}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.0105}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          mh{col 14}{c |} Odds ratio{col 26}   Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}tenure {c |}{col 14}{res}{space 2} 1.449001{col 26}{space 2} .2393071{col 37}{space 1}    2.25{col 46}{space 3}0.025{col 54}{space 4} 1.048311{col 67}{space 3} 2.002845
+{txt}{space 8}agec {c |}{col 14}{res}{space 2} .9846178{col 26}{space 2} .0118227{col 37}{space 1}   -1.29{col 46}{space 3}0.197{col 54}{space 4} .9617163{col 67}{space 3} 1.008065
+{txt}{space 8}mars {c |}{col 14}{res}{space 2} 1.325944{col 26}{space 2}  .180331{col 37}{space 1}    2.07{col 46}{space 3}0.038{col 54}{space 4} 1.015687{col 67}{space 3} 1.730973
+{txt}{space 4}dweltype {c |}{col 14}{res}{space 2} 1.030804{col 26}{space 2} .1620101{col 37}{space 1}    0.19{col 46}{space 3}0.847{col 54}{space 4} .7575196{col 67}{space 3} 1.402679
+{txt}{space 7}hsize {c |}{col 14}{res}{space 2} .6788891{col 26}{space 2} .2947458{col 37}{space 1}   -0.89{col 46}{space 3}0.372{col 54}{space 4} .2898959{col 67}{space 3} 1.589848
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 29.92921{col 26}{space 2} 26.92974{col 37}{space 1}    3.78{col 46}{space 3}0.000{col 54}{space 4} 5.130976{col 67}{space 3} 174.5784
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: {bf:_cons} estimates baseline odds{txt}.{p_end}
+
+{com}. estimates store WholeSample
+{txt}
+{com}. 
+. //Sex-Stratified Regressions
+. logistic mh tenure agec mars dweltype hsize if sex1==1
+{res}
+{txt}{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:2,483}
+{txt}{col 57}{lalign 13:LR chi2({res:5})}{col 70} = {res}{ralign 6:18.83}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0021}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-551.44609}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.0168}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          mh{col 14}{c |} Odds ratio{col 26}   Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}tenure {c |}{col 14}{res}{space 2} 1.873046{col 26}{space 2} .4191302{col 37}{space 1}    2.80{col 46}{space 3}0.005{col 54}{space 4} 1.208024{col 67}{space 3} 2.904164
+{txt}{space 8}agec {c |}{col 14}{res}{space 2}  1.01571{col 26}{space 2} .0167849{col 37}{space 1}    0.94{col 46}{space 3}0.346{col 54}{space 4} .9833393{col 67}{space 3} 1.049146
+{txt}{space 8}mars {c |}{col 14}{res}{space 2} 1.648487{col 26}{space 2} .3418232{col 37}{space 1}    2.41{col 46}{space 3}0.016{col 54}{space 4} 1.097954{col 67}{space 3} 2.475067
+{txt}{space 4}dweltype {c |}{col 14}{res}{space 2} .8107819{col 26}{space 2} .1806045{col 37}{space 1}   -0.94{col 46}{space 3}0.346{col 54}{space 4} .5239573{col 67}{space 3}  1.25462
+{txt}{space 7}hsize {c |}{col 14}{res}{space 2} 1.068914{col 26}{space 2}  .788251{col 37}{space 1}    0.09{col 46}{space 3}0.928{col 54}{space 4} .2519066{col 67}{space 3} 4.535715
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.136095{col 26}{space 2} 3.867848{col 37}{space 1}    0.93{col 46}{space 3}0.354{col 54}{space 4}  .279624{col 67}{space 3} 35.17256
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: {bf:_cons} estimates baseline odds{txt}.{p_end}
+
+{com}. estimates store Female
+{txt}
+{com}. 
+. logistic mh tenure agec mars dweltype hsize if sex1==0
+{res}
+{txt}{col 1}Logistic regression{col 57}{lalign 13:Number of obs}{col 70} = {res}{ralign 6:1,821}
+{txt}{col 57}{lalign 13:LR chi2({res:5})}{col 70} = {res}{ralign 6:19.95}
+{txt}{col 57}{lalign 13:Prob > chi2}{col 70} = {res}{ralign 6:0.0013}
+{txt}{col 1}{lalign 14:Log likelihood}{col 15} = {res}{ralign 10:-468.61739}{txt}{col 57}{lalign 13:Pseudo R2}{col 70} = {res}{ralign 6:0.0208}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          mh{col 14}{c |} Odds ratio{col 26}   Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}tenure {c |}{col 14}{res}{space 2} .9854964{col 26}{space 2} .2515996{col 37}{space 1}   -0.06{col 46}{space 3}0.954{col 54}{space 4} .5975046{col 67}{space 3} 1.625432
+{txt}{space 8}agec {c |}{col 14}{res}{space 2} .9506747{col 26}{space 2} .0168268{col 37}{space 1}   -2.86{col 46}{space 3}0.004{col 54}{space 4} .9182603{col 67}{space 3} .9842332
+{txt}{space 8}mars {c |}{col 14}{res}{space 2} 1.479221{col 26}{space 2}  .288954{col 37}{space 1}    2.00{col 46}{space 3}0.045{col 54}{space 4}  1.00869{col 67}{space 3} 2.169245
+{txt}{space 4}dweltype {c |}{col 14}{res}{space 2} 1.427138{col 26}{space 2} .3196749{col 37}{space 1}    1.59{col 46}{space 3}0.112{col 54}{space 4} .9200244{col 67}{space 3} 2.213772
+{txt}{space 7}hsize {c |}{col 14}{res}{space 2}  .473014{col 26}{space 2} .2581513{col 37}{space 1}   -1.37{col 46}{space 3}0.170{col 54}{space 4} .1623019{col 67}{space 3} 1.378556
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 337.4809{col 26}{space 2} 447.0565{col 37}{space 1}    4.39{col 46}{space 3}0.000{col 54}{space 4} 25.15786{col 67}{space 3} 4527.147
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: {bf:_cons} estimates baseline odds{txt}.{p_end}
+
+{com}. estimates store Male
+{txt}
+{com}. 
+. ***Create Table of Regression Results***
+. etable, estimates(WholeSample Female Male) column(estimates) showstars showstarsnote
+{res}
+{smcl}
+{reset}{...}
+{hline 22}{c -}{hline 8}{c -}{hline 2}{c -}{hline 7}{c -}{hline 2}{c -}{hline 9}{c -}{hline 2}
+{space 22} WholeSample {space 2}Female{space 2} {space 4}Male{space 4}
+{hline 22}{c -}{hline 8}{c -}{hline 2}{c -}{hline 7}{c -}{hline 2}{c -}{hline 9}{c -}{hline 2}
+tenure{space 16} {space 3}{result:1.449} {result:*}{space 1} {space 2}{result:1.873} {result:**} {space 4}{result:0.985} {space 2}
+{space 22} {space 1}{result:(0.239)} {space 2} {result:(0.419)} {space 2} {space 2}{result:(0.252)} {space 2}
+AGEC{space 18} {space 3}{result:0.985} {space 2} {space 2}{result:1.016} {space 2} {space 4}{result:0.951} {result:**}
+{space 22} {space 1}{result:(0.012)} {space 2} {result:(0.017)} {space 2} {space 2}{result:(0.017)} {space 2}
+mars{space 18} {space 3}{result:1.326} {result:*}{space 1} {space 2}{result:1.648} {result:*}{space 1} {space 4}{result:1.479} {result:*}{space 1}
+{space 22} {space 1}{result:(0.180)} {space 2} {result:(0.342)} {space 2} {space 2}{result:(0.289)} {space 2}
+dweltype{space 14} {space 3}{result:1.031} {space 2} {space 2}{result:0.811} {space 2} {space 4}{result:1.427} {space 2}
+{space 22} {space 1}{result:(0.162)} {space 2} {result:(0.181)} {space 2} {space 2}{result:(0.320)} {space 2}
+hsize{space 17} {space 3}{result:0.679} {space 2} {space 2}{result:1.069} {space 2} {space 4}{result:0.473} {space 2}
+{space 22} {space 1}{result:(0.295)} {space 2} {result:(0.788)} {space 2} {space 2}{result:(0.258)} {space 2}
+Intercept{space 13} {space 2}{result:29.929} {result:**} {space 2}{result:3.136} {space 2} {space 2}{result:337.481} {result:**}
+{space 22} {result:(26.930)} {space 2} {result:(3.868)} {space 2} {result:(447.056)} {space 2}
+Number of observations {space 4}{result:4304} {space 2} {space 3}{result:2483} {space 2} {space 5}{result:1821} {space 2}
+{hline 22}{c -}{hline 8}{c -}{hline 2}{c -}{hline 7}{c -}{hline 2}{c -}{hline 9}{c -}{hline 2}
+{p}** p<.01, * p<.05{p_end}
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\tbavi\AppData\Local\Temp\STD4044_000000.tmp"
+{txt}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\tbavi\OneDrive - McGill University\CAnD3\RR1 Assignment\Analaysis & Regression Table.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 4 Oct 2023, 12:41:22
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
